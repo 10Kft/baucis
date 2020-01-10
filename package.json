@@ -6,7 +6,7 @@
     "url": "http://kun.io"
   },
   "homepage": "https://github.com/wprl/baucis",
-  "version": "1.6.8",
+  "version": "1.6.9",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha --bail",
