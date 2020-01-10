@@ -1,7 +1,6 @@
 var deco = require('deco');
 var mongoose = require('mongoose');
-var pluralize = require('mongoose/lib/utils').toCollectionName;
-var pluralizeFn = require('pluralize');
+var pluralize = require('pluralize');
 
 var Model = module.exports = deco(function (options, protect) {
   var model = this;
@@ -23,7 +22,7 @@ var Model = module.exports = deco(function (options, protect) {
   };
 
   model.singular(model.modelName);
-  model.plural(pluralize(model.singular(), pluralizeFn));
+  model.plural(pluralize(model.singular()));
 });
 
 // Wrap the mongoose model function to add this mixin to all registered models.

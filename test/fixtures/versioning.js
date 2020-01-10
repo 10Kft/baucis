@@ -17,7 +17,7 @@ mongoose.model('pumpkin', Pumpkin).locking(true);
 var fixture = module.exports = {
   init: function (done) {
 
-    mongoose.connect(config.mongo.url, { useMongoClient: true });
+    mongoose.connect(config.mongo.url, {});
 
     app = express();
 
@@ -37,8 +37,9 @@ var fixture = module.exports = {
     done();
   },
   deinit: function (done) {
-    server.close();
-    mongoose.disconnect();
-    done();
+    mongoose.disconnect(function(){
+      server.close();
+      done();
+    });
   }
 };

@@ -18,12 +18,12 @@ var Cheese = new Schema({
   name: { type: String, required: true, unique: true },
   color: { type: String, required: true, select: false },
   bother: { type: Number, required: true, default: 5 },
-  molds: [ String ],
+  molds: [String],
   life: { type: Number, default: 42 },
   arbitrary: [{
     goat: Boolean,
     champagne: String,
-    llama: [ Number ]
+    llama: [Number]
   }]
 });
 
@@ -47,7 +47,7 @@ mongoose.model('bal', Stores, 'stores').plural('baloo');
 var fixture = module.exports = {
   init: function (done) {
     mongoose.Promise = global.Promise;
-    mongoose.connect(config.mongo.url, { useMongoClient: true });
+    mongoose.connect(config.mongo.url, {});
 
     // Stores controller
     var stores = baucis.rest('store').findBy('name').select('-hyphenated-field-name -voltaic');
@@ -94,9 +94,10 @@ var fixture = module.exports = {
     done();
   },
   deinit: function (done) {
-    server.close();
-    mongoose.disconnect();
-    done();
+    mongoose.disconnect(function(){
+      server.close();
+      done();
+    });
   },
   create: function (done) {
     // clear all first
@@ -117,10 +118,11 @@ var fixture = module.exports = {
               var cheeses = [
                 { name: 'Cheddar', color: 'Yellow' },
                 { name: 'Huntsman', color: 'Yellow, Blue, White' },
-                { name: 'Camembert', color: 'White',
+                {
+                  name: 'Camembert', color: 'White',
                   arbitrary: [
-                    { goat: true, llama: [ 3, 4 ] },
-                    { goat: false, llama: [ 1, 2 ] }
+                    { goat: true, llama: [3, 4] },
+                    { goat: false, llama: [1, 2] }
                   ]
                 }
               ];
