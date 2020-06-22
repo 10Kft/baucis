@@ -111,7 +111,7 @@ var decorator = module.exports = function (options, protect) {
   protect.finalize(function (request, response, next) {
     if (!request.baucis.count) return next();
 
-    request.baucis.query.count(function (error, n) {
+    request.baucis.query.countDocuments(function (error, n) {
       if (error) return next(error);
       response.removeHeader('Transfer-Encoding');
       return response.json(n); // TODO support other content types
@@ -128,7 +128,7 @@ var decorator = module.exports = function (options, protect) {
     // Otherwise, stream the relevant documents from Mongo, based on constructed query.
     else {
       pipeline(request.baucis.query.cursor());
-    }    
+    }
     // Map documents to contexts.
     pipeline(function (doc, callback) {
       callback(null, { doc: doc, incoming: null });
@@ -176,7 +176,7 @@ var decorator = module.exports = function (options, protect) {
     // Otherwise, stream the relevant documents from Mongo, based on constructed query.
     else {
       pipeline(request.baucis.query.cursor());
-    } 
+    }
     // Map documents to contexts.
     pipeline(function (doc, callback) {
       callback(null, { doc: doc, incoming: null });
