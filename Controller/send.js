@@ -12,6 +12,7 @@ var decorator = module.exports = function (options, protect) {
 
   // __Private Module Members__
   // Format the Trailer header.
+  // Deprecated. See: https://stackoverflow.com/questions/22033933/using-trailer-header-with-http-chunked-transfer-how-to-set-cookie-using-it
   function addTrailer (response, header) {
     var current = response.get('Trailer');
     if (!current) response.set('Trailer', header);
@@ -24,7 +25,7 @@ var decorator = module.exports = function (options, protect) {
   // Generate a respone Etag from a context.
   function etag (response, useTrailer) {
     if (useTrailer) {
-      addTrailer(response, 'Etag');
+      //addTrailer(response, 'Etag');
       response.set('Transfer-Encoding', 'chunked');
     }
 
@@ -61,7 +62,7 @@ var decorator = module.exports = function (options, protect) {
   // Generate a Last-Modified header/trailer
   function lastModified (response, useTrailer) {
     if (useTrailer) {
-      addTrailer(response, 'Last-Modified');
+      //addTrailer(response, 'Last-Modified');
       response.set('Transfer-Encoding', 'chunked');
     }
 

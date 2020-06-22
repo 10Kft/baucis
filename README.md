@@ -75,18 +75,11 @@ That's it!  Now you have an RFC-compliant, flexible, and semantically rich API d
 [Check out the Wiki](https://github.com/wprl/baucis/wiki) for documentation and more in-depth information about baucis.  Check the [change log](CHANGES.md) for info on recently implemented features.
 
 
-## Coming Soon
-
- * Real time browser/client [subscription with EventSource](https://github.com/wprl/baucis-subscribe) (server sent events)
- * [Web hooks](https://github.com/wprl/baucis-hooks)
- * To see everything that's in store [visit the GitHub milestones page](https://github.com/wprl/baucis/milestones) for this repo.
-
-
 ## Contact
 
  * Twitter [@wprl](https://twitter.com/wprl)
  * [LinkedIn](https://linkedin.com/in/willprl)
  * Email [william@kun.io](mailto:william@kun.io)
 
-&copy; 2012-2015 Kun.io App Studio LLC
+&copy; 2012-2020 Kun.io App Studio LLC
 

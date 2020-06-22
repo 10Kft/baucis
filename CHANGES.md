@@ -1,5 +1,9 @@
 # Baucis Change Log
 
+## v2.0.0
+
+Update to work with latest versions of Node, Express, and Mongoose.  Special thank you to @maxiejbe
+
 ## v1.0.0-candidate.11
 
 Baucis was awarded the MongoDB Open Source Hack Contest 2014!
